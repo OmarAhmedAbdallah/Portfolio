@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Interfaces;
+using FluentNHibernate.Cfg.Db;
 using Infrastructure;
 using Infrastructure.UnitOfWork;
 using Microsoft.AspNetCore.Builder;
@@ -28,6 +29,8 @@ namespace Web
         {
             services.AddControllersWithViews();
             services.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
+
+
             services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("PortfolioDB"));
