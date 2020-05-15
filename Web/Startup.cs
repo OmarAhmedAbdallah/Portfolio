@@ -30,6 +30,8 @@ namespace Web
             services.AddControllersWithViews();
             services.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
 
+            //for Turn on runtime compilation ***
+            services.AddRazorPages().AddRazorRuntimeCompilation();
 
             services.AddDbContext<DataContext>(options =>
             {
